@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+/* Header Base Styling */
+.mercury-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    position: relative;
+    z-index: 1050;
+}
+
+/* Custom Newspaper Logo Font */
+.site-logo {
+    font-family: "Pirata One", system-ui;
+    font-size: 3.5rem;
+    color: #000;
+    line-height: 1;
+    margin: 0;
+}
+
+.site-logo-mobile {
+    font-size: 2.2rem;
+}
+
+/* Flexbox utilities for perfect centering */
+.header-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-center {
+    flex: 0 1 auto;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.eedition {
+    text-decoration: none;
+}
+
+.eedition:hover {
+    text-decoration: underline;
+}
+
+/* Custom Button Styling */
+.btn-mercury {
+    background-color: #006394;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 2px;
+    border: none;
+    font-size: 0.95rem;
+
+    width: 110px;
+    height: 38px;
+    padding: 0;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.btn-mercury:hover, .btn-mercury:focus {
+    background-color: #007ab8;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Navigation Links */
+.top-nav a {
+    color: #000;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.top-nav a:hover, .top-nav a:focus {
+    color: #006394;
+    text-decoration: underline;
+}
+
+/* Header Container to prevent jump when sticky */
+.header-desktop-container {
+    min-height: 180px; /* Approximately the height of the full desktop header */
+}
+
+.header-desktop-container.has-sticky {
+    /* Maintain the space even when header is fixed */
+    min-height: 180px;
+}
+
+/* Sticky Header Animation and Styling */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    border-top: 3px solid #333;
+    border-bottom: 2px solid #333;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1060;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Icon Button Resets */
+.icon-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon-btn:hover, .icon-btn:focus {
+    color: #006394;
+}
+
+/* Specific styling to align and color the desktop search icon */
+.search-icon-desktop {
+    color: #000;
+    height: 38px; /* Matches the button height for perfect centering */
+    display: flex;
+    align-items: center;
+}
+
+.search-icon-desktop:hover, .search-icon-desktop:focus {
+    color: #006394;
+    transition: background-color 0.2s ease;
+}
+
+/* Search Bar Dropdown Container */
+.search-bar-container {
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    animation: slideDownSearch 0.15s ease-out forwards;
+}
+
+@keyframes slideDownSearch {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HEADER LAYERING --- */
+.header-top-layer {
+    position: relative;
+    z-index: 3;
+    background-color: #ffffff;
+}
+
+.header-bottom-layer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Dark Overlay Backdrop - Updated z-index to sit perfectly between layers */
+.search-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1; /* Updated from 1040 to neatly layer inside the header */
+    cursor: pointer;
+}
+
+/* Seamless Input Styling */
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #000;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #777;
+}
+
+/* --- SIDE MENU (ALL SECTIONS) STYLES --- */
+.side-menu {
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* Internet Explorer / old Edge */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px;
+    /* Calculates height to span the rest of the screen below the header */
+    height: calc(100vh - 65px);
+    background-color: #ffffff;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
+    border-right: 1px solid #ddd;
+    z-index: 10;
+
+    /* Independent scrolling inside the menu */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    /* Entrance Animation */
+    animation: slideRight 0.2s ease-out forwards;
+}
+
+.side-menu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* User Menu Entrance Animation */
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Mobile Sidebar width adjustment */
+@media (max-width: 991.98px) {
+    .side-menu {
+        position: fixed;
+        top: 51px;   /* match your mobile header height */
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+        height: auto;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.side-menu-link {
+    transition: background-color 0.15s;
+}
+
+.side-menu-link:hover, .side-menu-link:focus {
+    background-color: #f4f4f4;
+    color: #006394 !important;
+}
+
+/* Full-width block button override for the sidebar */
+.btn-mercury-block {
+    width: 100% !important;
+    height: 44px;
+    font-size: 1rem;
+}
+
+/* Sub-menu styling for accordion */
+.side-menu-sublink {
+    transition: background-color 0.15s, color 0.15s;
+    animation: slideDown 0.2s ease-out forwards;
+    cursor: pointer; /* Kept default since it acts as plain text */
+}
+
+.accordion-chevron {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.22s ease;
+    transform-origin: center;
+}
+
+.accordion-chevron.is-open {
+    transform: rotate(90deg);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s ease, opacity 0.22s ease;
+    opacity: 0;
+}
+
+.accordion-panel.is-open {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+/* Optional hover interaction even for plain text sublinks to feel responsive */
+.side-menu-sublink:hover {
+    background-color: #ebebeb;
+    color: #006394 !important;
+}
+
+/* Reset buttons inside side menu to act strictly as structural layout */
+.menu-accordion-btn {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* --- USER MENU DROPDOWN --- */
+.user-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    /* Calculates height to span the rest of the screen below the header */
+    height: calc(100vh - 65px);
+    background-color: #ffffff;
+    box-shadow: -4px 4px 15px rgba(0,0,0,0.1);
+    border-left: 1px solid #ddd;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* Independent scrolling inside the menu */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    /* Entrance Animation */
+    animation: slideLeft 0.2s ease-out forwards;
+}
+
+/* Mobile User Menu Sidebar width adjustment */
+@media (max-width: 991.98px) {
+    .user-menu-dropdown {
+        position: fixed;
+        top: 51px;   /* match your mobile header height */
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+        height: auto;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+
+/* Ensure the button matches the sidebar buttons */
+.btn-mercury-block {
+    width: 100%;
+    height: 44px;
+    font-size: 1rem;
+    font-weight: 700;
+}
