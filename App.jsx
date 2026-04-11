@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from "./Footer";
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
                 {[...Array(6)].map((_, i) => (
                     <article key={i} className="row mb-5 bg-white p-4 shadow-sm border">
                         <div className="col-md-5">
-                            {/* placehold.co utilized for images */}
+                            {/* placehold.co used for images */}
                             <img
                                 src={`https://placehold.co/600x400/eeeeee/999999?text=News+Image+${i + 1}`}
                                 alt={`Placeholder representative for article ${i + 1}`}
@@ -32,6 +33,9 @@ function App() {
                     </article>
                 ))}
             </main>
+
+            {/* Implementing the new Footer component */}
+            <Footer />
         </div>
     );
 }

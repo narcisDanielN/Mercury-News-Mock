@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+/* --- FOOTER BASE --- */
+.mercury-footer {
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #000;
+}
+
+.footer-logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Aligns left on desktop */
+}
+
+.footer-site-logo-svg {
+    width: 100%; /* Forces the graphic to perfectly stretch to the column boundaries */
+    height: auto;
+    display: block;
+}
+
+/* --- FOOTER SECTIONS --- */
+.footer-section-wrapper {
+    margin-bottom: 2rem; /* Separates sections on desktop */
+}
+
+.footer-section-wrapper:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Container just handles the black border now */
+.footer-heading-container {
+    border-top: 2px solid #000;
+}
+
+/* Guarantees the top black line aligns with the logo mathematically */
+.footer-col > .footer-section-wrapper:first-of-type > .footer-heading-container {
+    margin-top: 0;
+}
+
+.footer-heading {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.footer-accordion-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    color: #000;
+}
+
+.footer-heading:hover {
+    text-decoration: underline;
+}
+
+/* --- MOBILE ACCORDION STACKING FIX --- */
+@media (max-width: 767.98px) {
+    /* 1. Removes the spacing between sections */
+    .footer-section-wrapper {
+        margin-bottom: 0 !important;
+    }
+
+    /* 2. Overrides Bootstrap's mb-4 on the columns so they don't add gaps */
+    .footer-col {
+        margin-bottom: 0 !important;
+    }
+
+    .footer-heading-container {
+        padding: 0.8rem 0; /* Tighter vertical spacing */
+    }
+
+    /* 3. Increases tap target size for mobile accessibility */
+    .footer-accordion-btn {
+        padding: 0;
+    }
+
+    /* 4. Adds space inside the open list so it breathes before the next line */
+    .footer-accordion-panel.is-open ul {
+        padding-bottom: 1.25rem;
+    }
+
+    /* 5. Removes gap between last section and button */
+    .d-md-none > .footer-section-wrapper:last-of-type {
+        margin-bottom: 0 !important;
+    }
+
+    /* 6. Tightens button container spacing on mobile */
+    .footer-button-container {
+        margin-top: 0 !important;
+        padding-top: 0.8rem;
+    }
+}
+
+/* --- FOOTER ACCORDION ANIMATIONS --- */
+.footer-accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.footer-accordion-panel.is-open {
+    max-height: 500px; /* Large enough for the content */
+    opacity: 1;
+}
+
+.footer-chevron {
+    display: inline-flex;
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+
+.footer-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+/* --- FOOTER LINKS --- */
+.footer-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    padding: 0.3rem 0;
+    transition: color 0.15s;
+}
+
+/* The blue subscribe button */
+.footer-button-container {
+    border-top: 2px solid #000;
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@media (min-width: 768px) {
+    .footer-button-container {
+        margin-top: 1.25rem;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.btn-footer-subscribe {
+    background-color: #006394;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    width: 100%;
+    margin-top: 0; /* Margin handled by the container now */
+    transition: background-color 0.2s ease;
+}
+
+.btn-footer-subscribe:hover, .btn-footer-subscribe:focus {
+    background-color: #007ab8;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* --- BOTTOM LEGAL SECTION --- */
+.footer-divider {
+    border-top: 1px solid #ccc;
+    margin: 2.5rem 0 1.5rem 0;
+    opacity: 1;
+}
+
+.footer-legal-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-right: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 992px) {
+    .footer-legal-link {
+        font-size: 0.8rem;
+    }
+}
+
+.footer-copyright {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    text-align: center !important;
+}
+
+@media (min-width: 992px) {
+    .footer-copyright {
+        font-size: 0.8rem;
+        text-align: center !important;
+    }
+}
+
+.footer-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}

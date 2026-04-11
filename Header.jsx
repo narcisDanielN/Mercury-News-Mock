@@ -126,10 +126,15 @@ const Header = () => {
 
     // Handle Scroll Sticky Header
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 120);
+        const handleScroll = () => {
+            const threshold = window.innerWidth < 992 ? 50 : 120;
+            setIsScrolled(window.scrollY > threshold);
+        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     },[]);
+
+    const isMobileSticky = isScrolled || isMenuOpen || isUserMenuOpen || isSearchOpen;
 
     const closeAll = () => {
         setIsSearchOpen(false);
@@ -194,7 +199,7 @@ const Header = () => {
         <div className="user-menu-dropdown">
             <button className="btn-mercury btn-mercury-block">Subscribe</button>
             <button className="btn-mercury btn-mercury-block">Log in</button>
-            <div className="mt-3 border-top pt-3 text-center">
+            <div className="mt-3 border-top pt-3 text-center mb-5 pb-4">
                 <p className="fw-bold mb-2" style={{fontSize: '0.9rem'}}>Get Morning Report and other email newsletters</p>
                 <button className="btn-mercury btn-mercury-block">Sign Up</button>
             </div>
@@ -204,7 +209,7 @@ const Header = () => {
     return (
         <>
             <div className={`header-desktop-container d-none d-lg-block ${isScrolled ? 'has-sticky' : ''}`}>
-                <header className={`mercury-header ${isScrolled ? 'sticky-header' : ''}`}>
+                <header className={`mercury-header ${isScrolled ? 'sticky-header animate-sticky' : ''}`}>
                     <div className="header-top-layer">
                         <div className={`px-4 ${isScrolled ? 'py-2' : 'pt-3 pb-2'}`}>
                             <div className={`d-flex justify-content-between position-relative ${isScrolled ? 'align-items-center' : 'align-items-start'}`}>
@@ -282,7 +287,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Header */}
-            <header className="mercury-header d-lg-none position-relative">
+            <header className={`mercury-header d-lg-none ${isMobileSticky ? 'sticky-header' : 'position-relative'} ${isScrolled ? 'animate-sticky' : ''}`}>
                 <div className="header-top-layer">
                     <div className="px-3 py-2 d-flex justify-content-between align-items-center">
                         <button className="icon-btn" onClick={toggleMenu} aria-expanded={isMenuOpen} aria-label={isMenuOpen ? "Close All Sections Menu" : "Open All Sections Menu"}>
