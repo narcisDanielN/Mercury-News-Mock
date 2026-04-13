@@ -18,6 +18,7 @@
 
 .footer-site-logo-svg {
     width: 100%; /* Forces the graphic to perfectly stretch to the column boundaries */
+    max-width: 370px;
     height: auto;
     display: block;
 }
@@ -99,6 +100,11 @@
     .footer-button-container {
         margin-top: 0 !important;
         padding-top: 0.8rem;
+    }
+
+    /* 7. Center logo only for 1-column mode */
+    .footer-logo-wrapper {
+        justify-content: center;
     }
 }
 
@@ -193,7 +199,7 @@
 
 .footer-copyright {
     font-size: 0.95rem;
-    color: #777;
+    color: #3c3c3c;
     margin-top: 0.5rem;
     line-height: 1.5;
     text-align: center !important;

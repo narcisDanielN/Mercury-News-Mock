@@ -90,7 +90,7 @@ const Footer = () => {
 
     return (
         <footer className="mercury-footer">
-            <div className="container">
+            <div className="container-fluid px-3 px-lg-4 mx-auto" style={{ maxWidth: '1520px' }}>
 
                 {/* Top Logo Row: Separated from the grid to fix Y-alignment, but matches Column 1's exact width */}
                 <div className="row mb-2">
@@ -110,7 +110,6 @@ const Footer = () => {
                                         The Mercury News
                                     </text>
                                 </svg>
-                                <span className="visually-hidden">The Mercury News</span>
                             </div>
                         </a>
                     </div>

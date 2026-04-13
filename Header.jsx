@@ -49,7 +49,7 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
             <button className="btn-mercury btn-mercury-block">Subscribe Now</button>
         </div>
 
-        <div className="d-lg-none p-2 mb-1 text-start">
+        <div className="d-xl-none p-2 mb-1 text-start">
             <div className="d-flex align-items-center fw-bold text-nowrap" style={{ fontSize: '1.05rem' }}>
                 <span>57°F</span>
                 <span className="mx-1 d-flex align-items-center"><CloudIcon /></span>
@@ -115,24 +115,13 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
     </div>
 );
 
-const Header = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
+const Header = ({isScrolled}) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
     // Tracks which accordion sections in the side menu are open
     const [expandedSections, setExpandedSections] = useState({});
-
-    // Handle Scroll Sticky Header
-    useEffect(() => {
-        const handleScroll = () => {
-            const threshold = window.innerWidth < 992 ? 50 : 120;
-            setIsScrolled(window.scrollY > threshold);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    },[]);
 
     const isMobileSticky = isScrolled || isMenuOpen || isUserMenuOpen || isSearchOpen;
 
@@ -208,7 +197,7 @@ const Header = () => {
 
     return (
         <>
-            <div className={`header-desktop-container d-none d-lg-block ${isScrolled ? 'has-sticky' : ''}`}>
+            <div className={`header-desktop-container d-none d-xl-block ${isScrolled ? 'has-sticky' : ''}`}>
                 <header className={`mercury-header ${isScrolled ? 'sticky-header animate-sticky' : ''}`}>
                     <div className="header-top-layer">
                         <div className={`px-4 ${isScrolled ? 'py-2' : 'pt-3 pb-2'}`}>
@@ -240,7 +229,7 @@ const Header = () => {
 
                                 <div className="header-center d-flex justify-content-center align-items-start">
                                     <a href="/" className="text-decoration-none" aria-label="The Mercury News Homepage">
-                                        <h1 className="site-logo">The Mercury News</h1>
+                                        <h1 className="site-logo text-nowrap">The Mercury News</h1>
                                     </a>
                                 </div>
 
@@ -287,18 +276,22 @@ const Header = () => {
             </div>
 
             {/* Mobile Header */}
-            <header className={`mercury-header d-lg-none ${isMobileSticky ? 'sticky-header' : 'position-relative'} ${isScrolled ? 'animate-sticky' : ''}`}>
+            <header className={`mercury-header d-xl-none ${isMobileSticky ? 'sticky-header' : 'position-relative'} ${isScrolled ? 'animate-sticky' : ''}`}>
                 <div className="header-top-layer">
-                    <div className="px-3 py-2 d-flex justify-content-between align-items-center">
-                        <button className="icon-btn" onClick={toggleMenu} aria-expanded={isMenuOpen} aria-label={isMenuOpen ? "Close All Sections Menu" : "Open All Sections Menu"}>
-                            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-                        </button>
+                    <div className="px-3 py-2 d-flex justify-content-between align-items-center position-relative">
+                        <div className="mobile-header-left">
+                            <button className="icon-btn" onClick={toggleMenu} aria-expanded={isMenuOpen} aria-label={isMenuOpen ? "Close All Sections Menu" : "Open All Sections Menu"}>
+                                {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+                            </button>
+                        </div>
 
-                        <a href="/" className="text-decoration-none">
-                            <h1 className="site-logo site-logo-mobile">The Mercury News</h1>
-                        </a>
+                        <div className="mobile-header-center">
+                            <a href="/" className="text-decoration-none">
+                                <h1 className="site-logo site-logo-mobile text-nowrap">The Mercury News</h1>
+                            </a>
+                        </div>
 
-                        <div className="d-flex align-items-center gap-3">
+                        <div className="mobile-header-right d-flex align-items-center gap-3">
                             <button className="icon-btn" onClick={toggleUserMenu} aria-expanded={isUserMenuOpen} aria-label={isUserMenuOpen ? "Close User Menu" : "Open User Menu"}>
                                 <PersonIcon /> <ChevronDownIcon />
                             </button>
