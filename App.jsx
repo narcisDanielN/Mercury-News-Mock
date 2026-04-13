@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from "./Footer";
 import TrendingSection from './TrendingSection';
 import MainNews from './MainNews';
+import CategoryNews from "./CategoryNews";
 
 function App() {
     const [isScrolled,setIsScrolled] = useState(false);
@@ -28,6 +29,9 @@ function App() {
             <main id="main-content" className="container-fluid px-3 px-lg-4 mx-auto mt-4 pb-5" style={{ maxWidth: '1520px', minHeight: '80vh' }}>
                 {/* Main News Section */}
                 <MainNews />
+
+                {/* CRIME AND PUBLIC SAFETY, SPORTS and REAL ESTATE Section */}
+                <CategoryNews />
             </main>
 
             {/* Implementing the new Footer component */}

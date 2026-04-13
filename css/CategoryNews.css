@@ -1,0 +1,81 @@
+/* --- CATEGORY HEADER --- */
+.category-header-container {
+    border-bottom: 2px solid #006da3;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.category-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #333;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.category-title:hover {
+    color: #006da3;
+    cursor: pointer;
+}
+
+.category-arrow {
+    color: #006da3;
+    margin-left: 0.25rem;
+    margin-top: -2px; /* Vertically aligns the arrow with the text */
+}
+
+/* --- MAIN ARTICLE --- */
+.category-main-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.category-main-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    display: block;
+}
+
+.category-main-title:hover {
+    color: #006da3;
+}
+
+.category-main-desc {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+/* --- SUB ARTICLES LIST --- */
+.category-sub-item {
+    border-bottom: 1px solid #d7d6d2;
+    padding: 0.85rem 0;
+}
+
+/* Removes the bottom line from the 3rd (last) article */
+.category-sub-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.category-sub-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.3;
+    display: block;
+}
+
+.category-sub-link:hover {
+    color: #006da3;
+}

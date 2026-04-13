@@ -55,7 +55,6 @@
 /* Hover effect passes from the parent link down to the title */
 .random-article-link:hover .news-link {
     color: #006394;
-    text-decoration: underline;
 }
 
 /* --- EXCLUSIVE SHRINKED 4-COLUMN OVERRIDE (Bootstrap 'xl' breakpoint) --- */
