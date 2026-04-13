@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/MainNews.css';
+import MostPopular from "./MostPopular";
 
 const MainNews = () => {
     // Placeholder Data
@@ -113,6 +114,12 @@ const MainNews = () => {
                             </article>
                         ))}
                     </div>
+
+                    {/* Desktop Most Popular (Visible on 3-column layout) */}
+                    {/* Stays securely in the left column under the 4 random articles on 3-column view */}
+                    <div className="d-none d-lg-block d-xl-none">
+                        <MostPopular />
+                    </div>
                 </div>
 
                 {/* RIGHT SIDEBAR AREA (Latest Headlines + Sign Up) */}
@@ -142,6 +149,17 @@ const MainNews = () => {
 
                 </aside>
 
+                {/* Mobile/Tablet Most Popular (Hidden on Desktop) */}
+                {/* Because it sits outside the sidebar, it naturally falls underneath the
+                    Latest Headlines & Sign Up button when the grid collapses! */}
+                <div className="col-12 d-block d-lg-none mt-2">
+                    <MostPopular />
+                </div>
+
+                {/* Full-width Most Popular for 4-column view */}
+                <div className="col-12 d-none d-xl-block">
+                    <MostPopular />
+                </div>
             </div>
         </section>
     );

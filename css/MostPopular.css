@@ -1,0 +1,53 @@
+/* --- MOST POPULAR HEADER --- */
+.most-popular-header-container {
+    border-bottom: 2px solid #006da3;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.most-popular-title {
+    color: #006da3;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- CIRCULAR NUMBER BADGES --- */
+.popular-item {
+    margin-bottom: 1.25rem;
+}
+
+.popular-number {
+    background-color: #006da3;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 50%;
+
+    /* Perfect center alignment for the number */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 1rem;
+    flex-shrink: 0; /* Prevents the circle from squishing when text wraps */
+}
+
+/* --- ARTICLE TEXT --- */
+.popular-text {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.3;
+    margin-top: 0.15rem; /* Aligns the first line of text perfectly with the circle */
+}
+
+.popular-text:hover {
+    color: #006da3;
+}

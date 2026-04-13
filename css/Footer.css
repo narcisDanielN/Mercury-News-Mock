@@ -63,6 +63,7 @@
 
 .footer-heading:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 /* --- MOBILE ACCORDION STACKING FIX --- */
@@ -123,7 +124,7 @@
 
 .footer-chevron {
     display: inline-flex;
-    animation: slideDown 0.3s ease-in-out forwards;
+    transition: transform 0.3s ease-in-out;
 }
 
 .footer-chevron.is-open {
