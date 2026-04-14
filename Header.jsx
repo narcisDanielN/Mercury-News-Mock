@@ -1,39 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import './css/Header.css';
 
-// SVG Icons
-const MenuIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>;
-const CloseIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>;
-const SearchIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>;
-const CloudIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>;
-const PersonIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>;
-const ChevronDownIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>;
-const HomeIcon = () => <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>;
+//SVG icons
+const MenuIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>;
+const CloseIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>;
+const SearchIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>;
+const CloudIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>;
+const PersonIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>;
+const ChevronDownIcon = () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>;
+const HomeIcon = () => <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>;
 
-// Small chevrons for the side menu accordion
-const ChevronRightIconSmall = () => <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>;
-const ChevronDownIconSmall = () => <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>;
+//small chevron for the side menu accordion
+const ChevronRightIconSmall = () => <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>;
 
 const navLinks =["News", "Local", "Sports", "Obituaries", "Things to Do", "Business", "Real Estate", "Opinion", "Marketplace", "e-Edition"];
 
-// Updated Submenu Mapping Array
+//submenu mapping array
 const sidebarLinksData =[
-    { name: "News", subLinks:["News", "Latest Headlines", "Crime and Public Safety", "California News", "National News", "World News", "Politics", "Education", "Environment", "Science", "Health", "Transportation", "Weather"] },
-    { name: "Local", subLinks:["Bay Area", "San Jose", "Santa Clara County", "Peninsula", "San Mateo County", "Alameda County", "Santa Cruz County", "Sal Pizarro"] },
-    { name: "Obituaries", subLinks:["Obituaries", "News Obituaries", "Place an Obituary"] },
-    { name: "Opinion", subLinks:["Opinion", "Editorials", "Opinion Columnists", "Letters to the Editor", "Commentary", "Cartoons", "Election Endorsements"] },
-    { name: "Sports", subLinks:["Sports", "San Francisco 49ers", "San Francisco Giants", "Golden State Warriors", "Raiders", "Athletics", "San Jose Sharks", "San Jose Earthquakes", "Bay FC", "College Sports", "Wilner Hotline", "High School Sports", "Other Sports", "Sports Columnists", "Sports Blogs", "Golden States", "Valkyries"] },
-    { name: "Things To Do", subLinks:["Entertainment", "Readers Choice", "Things To Do", "Restaurants, Food and Drink", "Celebrities", "TV Streaming", "Movies", "Music", "Theater", "Lifestyle", "Cannabis", "Advice", "Travel", "Pets and Animals", "Comics", "Puzzles and Games", "Horoscopes", "Event Calendar"] },
-    { name: "Business", subLinks:["Business", "Housing", "Economy", "Technology", "Best Reviews", "SiliconValley.com"] },
-    { name: "Marketplace", subLinks:["Branded Content", "Partner Content", "BayArea.com"] },
-    { name: "Real Estate", subLinks: null },
-    { name: "Branded Content", subLinks: ["Paid Content by Brandpoint"] },
-    { name: "Subscribe", subLinks: null },
-    { name: "Advertise", subLinks: null },
-    { name: "Log in", subLinks: null }
+    {
+        name: "News",
+        subLinks:["News", "Latest Headlines", "Crime and Public Safety", "California News", "National News",
+            "World News", "Politics", "Education", "Environment", "Science", "Health", "Transportation", "Weather"]
+    },
+    {
+        name: "Local",
+        subLinks:["Bay Area", "San Jose", "Santa Clara County", "Peninsula", "San Mateo County", "Alameda County",
+            "Santa Cruz County", "Sal Pizarro"]
+    },
+    {
+        name: "Obituaries",
+        subLinks:["Obituaries", "News Obituaries", "Place an Obituary"]
+    },
+    {
+        name: "Opinion",
+        subLinks:["Opinion", "Editorials", "Opinion Columnists", "Letters to the Editor", "Commentary", "Cartoons",
+            "Election Endorsements"]
+    },
+    {
+        name: "Sports",
+        subLinks:["Sports", "San Francisco 49ers", "San Francisco Giants", "Golden State Warriors", "Raiders",
+            "Athletics", "San Jose Sharks", "San Jose Earthquakes", "Bay FC", "College Sports", "Wilner Hotline",
+            "High School Sports", "Other Sports", "Sports Columnists", "Sports Blogs", "Golden States", "Valkyries"]
+    },
+    {
+        name: "Things To Do",
+        subLinks:["Entertainment", "Readers Choice", "Things To Do", "Restaurants, Food and Drink", "Celebrities",
+            "TV Streaming", "Movies", "Music", "Theater", "Lifestyle", "Cannabis", "Advice", "Travel", "Pets and Animals",
+            "Comics", "Puzzles and Games", "Horoscopes", "Event Calendar"]
+    },
+    {
+        name: "Business",
+        subLinks:["Business", "Housing", "Economy", "Technology", "Best Reviews", "SiliconValley.com"]
+    },
+    {
+        name: "Marketplace",
+        subLinks:["Branded Content", "Partner Content", "BayArea.com"]
+    },
+    {
+        name: "Real Estate",
+        subLinks: null
+    },
+    {
+        name: "Branded Content",
+        subLinks: ["Paid Content by Brandpoint"]
+    },
+    {
+        name: "Subscribe",
+        subLinks: null
+    },
+    {
+        name: "Advertise",
+        subLinks: null
+    },
+    {
+        name: "Log in",
+        subLinks: null
+    }
 ];
 
-// Reusable Sub-Components
+//search bar
 const SearchBarDropdown = () => (
     <div className="search-bar-container px-4 py-2 d-flex align-items-center">
         <SearchIcon />
@@ -43,12 +96,15 @@ const SearchBarDropdown = () => (
     </div>
 );
 
+//side menu
 const SideMenu = ({ expandedSections, toggleAccordion }) => (
     <div className="side-menu pb-5" role="dialog" aria-label="All Sections Navigation">
+        {/* Subscribe Now button */}
         <div className="p-2">
             <button className="btn-mercury btn-mercury-block">Subscribe Now</button>
         </div>
 
+        {/* Weather infos (mobile version) */}
         <div className="d-xl-none p-2 mb-1 text-start">
             <div className="d-flex align-items-center fw-bold text-nowrap" style={{ fontSize: '1.05rem' }}>
                 <span>57°F</span>
@@ -60,25 +116,27 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
             </a>
         </div>
 
+        {/* Home Page button */}
         <div className="p-2">
-            <span className="text-dark d-flex align-items-center fw-bold cursor-default" style={{ cursor: 'default' }}>
+            <span className="text-dark d-flex align-items-center fw-bold cursor-default" style={{ cursor: 'pointer' }}>
                 <HomeIcon /> <span className="ms-3">Home Page</span>
             </span>
         </div>
 
+        {/* Sidebar Sections */}
         <nav aria-label="Sidebar Sections">
             <ul className="list-unstyled mb-0">
                 {sidebarLinksData.map((link) => {
                     const isExpanded = expandedSections[link.name];
                     return (
                         <li key={link.name}>
-                            {/* Plain Text Parent Button Toggle */}
+                            {/* Plain Text Parent Button Toggle (before clicking) */}
                             <button
                                 type="button"
                                 className="menu-accordion-btn side-menu-link text-dark d-flex justify-content-between align-items-center px-2 py-2"
                                 onClick={() => link.subLinks ? toggleAccordion(link.name) : null}
                                 aria-expanded={isExpanded}
-                                style={{ cursor: link.subLinks ? 'pointer' : 'default' }}
+                                style={{ cursor: 'pointer'}}
                             >
                                 <span className="fw-bold fs-6">{link.name}</span>
                                 {link.subLinks && (
@@ -88,13 +146,13 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
                                 )}
                             </button>
 
-                            {/* Sub-menu Expanded List */}
+                            {/* Sub-menu Expanded List (after clicking) */}
                             {link.subLinks && (
                                 <div className={`accordion-panel ${isExpanded ? 'is-open' : ''}`}>
                                     <ul className="list-unstyled mb-0 bg-light">
                                         {link.subLinks.map(subLink => (
                                             <li key={subLink}>
-                                                    <span className="side-menu-sublink d-block px-4 py-2 text-dark" style={{ fontSize: '0.95rem' }}>
+                                                    <span className="side-menu-sublink d-block px-4 py-2 text-dark fw-bold" style={{ fontSize: '0.95rem' }}>
                                                         {subLink}
                                                     </span>
                                             </li>
@@ -108,6 +166,7 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
             </ul>
         </nav>
 
+        {/* Sign Up section */}
         <div className="p-3 mt-3 text-center mb-5 pb-4">
             <p className="fw-bold mb-3" style={{fontSize: '0.9rem'}}>Get Morning Report and other email newsletters</p>
             <button className="btn-mercury btn-mercury-block">Sign Up</button>
@@ -115,14 +174,17 @@ const SideMenu = ({ expandedSections, toggleAccordion }) => (
     </div>
 );
 
+//header
 const Header = ({isScrolled}) => {
+    //tracks which overlays are open
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-    // Tracks which accordion sections in the side menu are open
+    //tracks which accordion sections in the side menu are open
     const [expandedSections, setExpandedSections] = useState({});
 
+    //mobile sticky header variables to manage the accordion sections
     const isMobileSticky = isScrolled || isMenuOpen || isUserMenuOpen || isSearchOpen;
 
     const closeAll = () => {
@@ -131,7 +193,7 @@ const Header = ({isScrolled}) => {
         setIsUserMenuOpen(false);
     };
 
-    // Handle Escape Key & Body Scroll Lock
+    //handles Escape Key & Body Scroll Lock
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
@@ -139,7 +201,7 @@ const Header = ({isScrolled}) => {
             }
         };
 
-        // Freeze background website scrolling when overlays are open
+        //freeze background website scrolling when overlays are open
         if (isSearchOpen || isMenuOpen || isUserMenuOpen) {
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
@@ -156,7 +218,7 @@ const Header = ({isScrolled}) => {
         };
     }, [isSearchOpen, isMenuOpen, isUserMenuOpen]);
 
-    // Toggles to ensure only one overlay is open at a time
+    //toggles to ensure only one overlay is open at a time
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
         setIsMenuOpen(false);
@@ -175,15 +237,17 @@ const Header = ({isScrolled}) => {
         setIsMenuOpen(false);
     };
 
+    //ensures that maximum one accordion at a time stays open
     const toggleAccordion = (name) => {
         setExpandedSections(prev => {
             const isAlreadyOpen = !!prev[name];
-            // If it's already open, close it (reset to empty).
-            // If it's not open, close everything else and open this one.
+            //if it's already open, close it (reset to empty)
+            //if it's not open, close everything else and open this one
             return isAlreadyOpen ? {} : { [name]: true };
         });
     };
 
+    //user menu dropdown (tablet and mobile version)
     const UserMenuDropdown = () => (
         <div className="user-menu-dropdown">
             <button className="btn-mercury btn-mercury-block">Subscribe</button>
@@ -203,6 +267,7 @@ const Header = ({isScrolled}) => {
                         <div className={`px-4 ${isScrolled ? 'py-2' : 'pt-3 pb-2'}`}>
                             <div className={`d-flex justify-content-between position-relative ${isScrolled ? 'align-items-center' : 'align-items-start'}`}>
 
+                                {/* Sidebar Menu */}
                                 <div className="header-left">
                                     <button
                                         className="icon-btn fw-bold mt-1"
@@ -213,6 +278,7 @@ const Header = ({isScrolled}) => {
                                         {isMenuOpen ? <CloseIcon /> : <MenuIcon />} <span className="ms-2">All Sections</span>
                                     </button>
 
+                                    {/* Weather infos (desktop version) */}
                                     {(!isScrolled && !isSearchOpen) && (
                                         <div className="mt-4 text-start text-nowrap">
                                             <div className="d-flex align-items-center fw-bold" style={{ fontSize: '0.95rem' }}>
@@ -227,12 +293,14 @@ const Header = ({isScrolled}) => {
                                     )}
                                 </div>
 
+                                {/* The Mercury News logo */}
                                 <div className="header-center d-flex justify-content-center align-items-start">
                                     <a href="/" className="text-decoration-none" aria-label="The Mercury News Homepage">
                                         <h1 className="site-logo text-nowrap">The Mercury News</h1>
                                     </a>
                                 </div>
 
+                                {/* SUBSCRIBE and LOG IN buttons + search icon */}
                                 <div className={`header-right ${isScrolled ? 'align-items-center' : 'justify-content-end'}`}>
                                     <div className="d-flex align-items-center gap-2 mt-1">
                                         <button className="btn-mercury">Subscribe</button>
@@ -253,10 +321,12 @@ const Header = ({isScrolled}) => {
                         {isMenuOpen && <SideMenu expandedSections={expandedSections} toggleAccordion={toggleAccordion} />}
                     </div>
 
+                    {/* Search interface */}
                     {(isSearchOpen || isMenuOpen) && (
                         <div className="search-backdrop" onClick={() => {setIsSearchOpen(false); setIsMenuOpen(false);}} aria-hidden="true"></div>
                     )}
 
+                    {/* Main Sections */}
                     {!isScrolled && (
                         <div className="header-bottom-layer">
                             <div className="px-4 pb-2">
@@ -279,18 +349,21 @@ const Header = ({isScrolled}) => {
             <header className={`mercury-header d-xl-none ${isMobileSticky ? 'sticky-header' : 'position-relative'} ${isScrolled ? 'animate-sticky' : ''}`}>
                 <div className="header-top-layer">
                     <div className="px-3 py-2 d-flex justify-content-between align-items-center position-relative">
+                        {/* Sidebar Menu */}
                         <div className="mobile-header-left">
                             <button className="icon-btn" onClick={toggleMenu} aria-expanded={isMenuOpen} aria-label={isMenuOpen ? "Close All Sections Menu" : "Open All Sections Menu"}>
                                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
                             </button>
                         </div>
 
+                        {/* The Mercury News logo */}
                         <div className="mobile-header-center">
                             <a href="/" className="text-decoration-none">
                                 <h1 className="site-logo site-logo-mobile text-nowrap">The Mercury News</h1>
                             </a>
                         </div>
 
+                        {/* User and Search buttons */}
                         <div className="mobile-header-right d-flex align-items-center gap-3">
                             <button className="icon-btn" onClick={toggleUserMenu} aria-expanded={isUserMenuOpen} aria-label={isUserMenuOpen ? "Close User Menu" : "Open User Menu"}>
                                 <PersonIcon /> <ChevronDownIcon />

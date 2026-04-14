@@ -7,6 +7,7 @@
     margin-bottom: 0.75rem;
 }
 
+/* --- MAIN ARTICLE --- */
 .main-article-title {
     font-size: 1.5rem;
     letter-spacing: -0.5px;
@@ -40,7 +41,7 @@
     color: #000;
 }
 
-/* Default Order: Image Top, Title Bottom */
+/* default order: image on top, title on bottom */
 .random-article-img-wrapper {
     order: 1;
     width: 100%;
@@ -52,22 +53,23 @@
     width: 100%;
 }
 
-/* Hover effect passes from the parent link down to the title */
 .random-article-link:hover .news-link {
     color: #006394;
 }
 
-/* --- EXCLUSIVE SHRINKED 4-COLUMN OVERRIDE (Bootstrap 'xl' breakpoint) --- */
+/* --- EXCLUSIVE SHRINK 4-COLUMN OVERRIDE --- */
 @media (min-width: 1200px) and (max-width: 1399.98px) {
     .random-article-link {
-        flex-direction: row; /* Place them side-by-side */
+        /* places them side-by-side */
+        flex-direction: row;
         align-items: flex-start;
         padding-bottom: 1.25rem;
         margin-bottom: 0.5rem;
     }
 
     .random-article-title-wrapper {
-        order: 2; /* Title moves to the Right */
+        /* title moves to the right */
+        order: 2;
         width: 55%;
         padding-left: 1.25rem;
         padding-right: 0;
@@ -75,26 +77,28 @@
     }
 
     .random-article-img-wrapper {
-        order: 1; /* Image moves to the Left */
+        /* image moves to the left */
+        order: 1;
         width: 45%;
         margin-bottom: 0;
     }
 
-    /* Remove the bottom border from the last article in the column */
+    /* removes the bottom border from the last article in the column */
     .random-article-col:last-child .random-article-link {
         border-bottom: none;
         padding-bottom: 0;
     }
 }
 
-/* --- 2-COLUMN LAYOUT (Bootstrap 'md' breakpoint: 768px - 991.98px) --- */
+/* --- 2-COLUMN LAYOUT --- */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .main-article-title {
         font-size: 29px;
     }
 
+    /* image to the left, title to the right */
     .random-article-link {
-        flex-direction: row; /* Image Left, Title Right */
+        flex-direction: row;
         align-items: flex-start;
     }
 
@@ -115,7 +119,7 @@
     }
 }
 
-/* --- 3-COLUMN LAYOUT (Bootstrap 'lg' breakpoint: 992px - 1199px) --- */
+/* --- 3-COLUMN LAYOUT --- */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .random-article-link {
         border-bottom: 1px solid #aaa7a4;
@@ -124,10 +128,10 @@
     }
 }
 
-/* --- 1-COLUMN LAYOUT (Mobile, under 768px) --- */
+/* --- 1-COLUMN LAYOUT --- */
 @media (max-width: 767.98px) {
     .random-article-link {
-        flex-direction: row; /* Image Left, Title Right */
+        flex-direction: row;
         align-items: flex-start;
         margin-bottom: 1.5rem;
     }
@@ -177,7 +181,7 @@
 }
 
 .related-list li::marker {
-    font-size: 10px; /* Making the square point smaller */
+    font-size: 10px;
 }
 
 .related-list li {
@@ -197,7 +201,7 @@
 
 /* --- SIDEBAR & LATEST HEADLINES --- */
 .sidebar-heading-container {
-    border-bottom: 2px solid #006394; /* Proprietary Blue */
+    border-bottom: 2px solid #006394;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;

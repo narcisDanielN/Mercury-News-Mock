@@ -24,10 +24,10 @@ function App() {
             {/* Header Implementation */}
             <Header isScrolled={isScrolled} />
 
-            {/* Trending Section - Responsive and responsive to scroll state */}
+            {/* Trending Section  */}
             <TrendingSection isScrolled={isScrolled} />
 
-            {/* Placeholder Content Wrapper (Required for scrolling and WAVE compliance) */}
+            {/* Placeholder Content Wrapper */}
             <main id="main-content" className="container-fluid px-3 px-lg-4 mx-auto mt-4 pb-5" style={{ maxWidth: '1520px', minHeight: '80vh' }}>
                 {/* Main News Section */}
                 <MainNews />
@@ -50,7 +50,7 @@ function App() {
                 </div>
             </main>
 
-            {/* Implementing the new Footer component */}
+            {/* Footer Component */}
             <Footer />
         </div>
     );

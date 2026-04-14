@@ -1,30 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import './css/Footer.css';
 
-// Data structure replicating the footer columns
+//data structure replicating the footer columns (4-column representation)
 const footerData = {
+    //column 1: News Alerts + Marketplace
     col1:[
-        { title: "NEWS ALERTS", links: ["Email Newsletters", "Today's e-Edition", "Mobile Apps", "Site Map"] },
-        { title: "MARKETPLACE", links:["Place an Obituary", "Place a Real Estate Ad", "Lottery"] }
+        {
+            title: "NEWS ALERTS",
+            links: ["Email Newsletters", "Today's e-Edition", "Mobile Apps", "Site Map"]
+        },
+        {
+            title: "MARKETPLACE",
+            links:["Place an Obituary", "Place a Real Estate Ad", "Lottery"]
+        }
     ],
+    //column 2: Contact Us
     col2:[
-        { title: "CONTACT US", links:["Digital Access FAQ", "Join our Team", "Special Sections", "Sponsor a Group", "Get Sponsored Access", "Privacy Policy", "Accessibility"] }
+        {
+            title: "CONTACT US",
+            links:["Digital Access FAQ", "Join our Team", "Special Sections", "Sponsor a Group",
+                "Get Sponsored Access", "Privacy Policy", "Accessibility"]
+        }
     ],
+    //column 3: Advertise with us
     col3:[
-        { title: "ADVERTISE WITH US", links:["Network Advertising", "Daily Ads", "Place a Legal Notice", "Public Notices"] }
+        {
+            title: "ADVERTISE WITH US",
+            links:["Network Advertising", "Daily Ads", "Place a Legal Notice", "Public Notices"]
+        }
     ],
+    //column 4: Subscribe + Sign In button
     col4: [
-        { title: "SUBSCRIBE", links:["Member Services", "Manage Subscriptions", "The Mercury News Store", "Archive Search", "Reprints"] }
+        {
+            title: "SUBSCRIBE",
+            links:["Member Services", "Manage Subscriptions", "The Mercury News Store", "Archive Search", "Reprints"]
+        }
     ]
 };
 
+//contains bottom links related to legal and privacy
 const legalLinks =[
     "Terms of Use", "Cookie Policy", "Cookie Preferences", "California Notice at Collection",
     "Notice of Financial Incentive", "Do Not Sell/Share My Personal Information", "Arbitration", "Powered by an UNIFI Student"
 ];
 
 const Footer = () => {
-    // Responsive state for the mobile accordion functionality
+    //responsive state for the mobile accordion functionality (1-column view)
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     useEffect(() => {
@@ -33,20 +54,20 @@ const Footer = () => {
         return () => window.removeEventListener('resize', handleResize);
     },[]);
 
-    // SVG Chevrons
-    const ChevronDownIcon = () => <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>;
-    const ChevronUpIcon = () => <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>;
+    //custom arrow SVG
+    const ChevronDownIcon = () => <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>;
 
-    // Reusable Component for a footer section (handles both mobile accordion & desktop list)
-    const FooterSection = ({ section, isFirstInSectionCol }) => {
+    //reusable component for a footer section (handles both mobile accordion & desktop list)
+    const FooterSection = ({ section }) => {
         const[isOpen, setIsOpen] = useState(false);
         const sectionId = `footer-section-${section.title.replace(/\s+/g, '-')}`;
 
         return (
-            // Replaced mb-4 with our custom wrapper for perfect margin control
             <div className="footer-section-wrapper">
                 {isMobile ? (
                     <>
+                        {/* mobile footer (1-column view) */}
                         <div className="footer-heading-container">
                             <button
                                 className="footer-accordion-btn d-flex justify-content-between align-items-center"
@@ -72,6 +93,7 @@ const Footer = () => {
                     </>
                 ) : (
                     <>
+                        {/* tablet-desktop view (2, 3 and 4-column view) */}
                         <div className="footer-heading-container">
                             <h2 className="footer-heading">{section.title}</h2>
                         </div>
@@ -92,7 +114,7 @@ const Footer = () => {
         <footer className="mercury-footer">
             <div className="container-fluid px-3 px-lg-4 mx-auto" style={{ maxWidth: '1520px' }}>
 
-                {/* Top Logo Row: Separated from the grid to fix Y-alignment, but matches Column 1's exact width */}
+                {/* Top Logo Row "The Mercury News" */}
                 <div className="row mb-2">
                     <div className="col-12 col-md-6 col-lg-5 col-xl-3">
                         <a href="/" className="text-decoration-none d-block w-100" aria-label="The Mercury News Homepage">
@@ -115,7 +137,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* MOBILE ONLY: Single flat list of all sections */}
+                {/* MOBILE ONLY: Single flat list of all sections (1-column) */}
                 <div className="d-md-none">
                     {[...footerData.col1, ...footerData.col2, ...footerData.col3, ...footerData.col4].map((section, idx) => (
                         <FooterSection key={idx} section={section} />
@@ -125,14 +147,13 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* DESKTOP ONLY: Multi-column layout */}
+                {/* DESKTOP ONLY: Multi-column layout (2, 3 or 4-column layout) */}
                 <div className="row d-none d-md-flex">
-
                     {/* Column 1 */}
                     <div className="col-md-6 col-lg-5 col-xl-3 footer-col mb-4 mb-xl-0 d-flex flex-column stretch-col">
                         {footerData.col1.map((section, idx) => <FooterSection key={idx} section={section} />)}
 
-                        {/* On 2-columns (md), Column 2 and Column 3 move here */}
+                        {/* On 2-columns layout (md), Column 2 and Column 3 move here */}
                         <div className="d-md-block d-lg-none footer-layout-2col">
                             {footerData.col2.map((section, idx) => <FooterSection key={idx} section={section} />)}
                             {footerData.col3.map((section, idx) => <FooterSection key={idx} section={section} />)}
@@ -162,7 +183,6 @@ const Footer = () => {
                             <button className="btn-footer-subscribe">SUBSCRIBE NOW</button>
                         </div>
                     </div>
-
                 </div>
 
                 <hr className="footer-divider" />
@@ -181,7 +201,9 @@ const Footer = () => {
 
                         {/* Copyright Notice */}
                         <p className="footer-copyright text-md-center mb-5">
-                            Copyright 2026 The Mercury News. All rights reserved. The use of any content on this website for the purpose of training artificial intelligence systems, algorithms, machine learning models, text and data mining, or similar use is strictly prohibited without explicit written consent.
+                            Copyright 2026 The Mercury News. All rights reserved. The use of any content on this website
+                            for the purpose of training artificial intelligence systems, algorithms, machine learning models,
+                            text and data mining, or similar use is strictly prohibited without explicit written consent.
                         </p>
 
                         {/* Partner Logos */}

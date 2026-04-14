@@ -42,7 +42,7 @@
     line-height: 1.5;
 }
 
-/* --- SIDE PHOTOS (6 Items) --- */
+/* --- SIDE PHOTOS (6 items) --- */
 .side-photo-item {
     margin-bottom: 1rem;
 }
@@ -66,7 +66,7 @@
     color: #006da3;
 }
 
-/* Default Mobile/XL format: Image Left, Text Right */
+/* 1-column and 4-column view: image to the left, text to the right, 1 column */
 .side-photo-img-wrapper {
     flex: 0 0 90px;
     height: 60px;
@@ -95,14 +95,14 @@
     color: #006da3;
 }
 
-/* Tablet & Small Desktop (3-col and 2-col views): 3 rows by 2 columns grid with horizontal items */
+/* 3-column and 2-column views: 3 rows by 2 columns grid with horizontal items */
 @media (min-width: 768px) and (max-width: 1199.98px) {
     .side-photo-link {
         flex-direction: row;
         border-bottom: 1px solid #eee;
         padding-bottom: 1rem;
     }
-    /* In a 2-column grid, the last row consists of the last two items (if 6 items total) */
+
     .side-photo-item:nth-last-child(-n+2) .side-photo-link {
         border-bottom: none;
         padding-bottom: 0;
@@ -126,7 +126,7 @@
 /* --- DECORATIVE DIVIDER --- */
 .decorative-divider {
     position: relative;
-    border-top: 1px solid #d7d6d2; /* The exact line color you requested */
+    border-top: 1px solid #d7d6d2;
     margin: 2rem 0 1.5rem 0;
     display: flex;
     justify-content: center;
@@ -135,10 +135,12 @@
 .decorative-diamond {
     width: 34px;
     height: 34px;
-    background-color: #fbfbfb; /* The exact fill color you requested */
+
+    background-color: #fbfbfb;
     border-bottom: 1px solid #d7d6d2;
     border-right: 1px solid #d7d6d2;
-    transform: rotate(45deg); /* Tilts the square into a diamond */
+
+    transform: rotate(45deg);
     position: absolute;
     top: -17px; /* Pulls it up by exactly half its height to perfectly center it on the line */
 }
@@ -146,7 +148,7 @@
 /* --- SHOW MORE PHOTOS --- */
 .show-more-container {
     text-align: center;
-    padding-top: 0; /* Removed the old border and padding */
+    padding-top: 0;
     margin-top: 0;
 }
 

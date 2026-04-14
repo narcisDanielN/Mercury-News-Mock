@@ -7,6 +7,7 @@
     align-items: center;
 }
 
+/* --- CATEGORY TITLE --- */
 .category-title {
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -21,10 +22,11 @@
     cursor: pointer;
 }
 
+/* --- CATEGORY ARROW --- */
 .category-arrow {
     color: #006da3;
     margin-left: 0.25rem;
-    margin-top: -2px; /* Vertically aligns the arrow with the text */
+    margin-top: -2px;
 }
 
 /* --- MAIN ARTICLE --- */
@@ -34,6 +36,7 @@
     margin-bottom: 1rem;
 }
 
+/* --- MAIN ARTICLE TITLE --- */
 .category-main-title {
     font-size: 1.25rem;
     font-weight: 800;
@@ -48,6 +51,7 @@
     color: #006da3;
 }
 
+/* --- MAIN ARTICLE DESCRIPTION --- */
 .category-main-desc {
     font-size: 0.95rem;
     color: #444;
@@ -61,7 +65,6 @@
     padding: 0.85rem 0;
 }
 
-/* Removes the bottom line from the 3rd (last) article */
 .category-sub-item:last-child {
     border-bottom: none;
     padding-bottom: 0;

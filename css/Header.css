@@ -1,6 +1,7 @@
+/* import font */
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
-/* Header Base Styling */
+/* header base styling */
 .mercury-header {
     background-color: #ffffff;
     border-bottom: 1px solid #ddd;
@@ -9,7 +10,7 @@
     z-index: 1050;
 }
 
-/* Custom Newspaper Logo Font */
+/* --- THE MERCURY NEWS LOGO --- */
 .site-logo {
     font-family: "Pirata One", system-ui;
     font-size: 3.5rem;
@@ -23,7 +24,7 @@
     font-size: 2.2rem;
 }
 
-/* Adjust font size on very small devices to prevent overflow */
+/* adjust font size on very small devices to prevent overflow */
 @media (max-width: 380px) {
     .site-logo-mobile {
         font-size: 1.8rem;
@@ -40,18 +41,18 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    pointer-events: none; /* Allows clicks to pass through to buttons if they overlap, but a better way is to z-index buttons higher */
+    pointer-events: none;
 }
 
 .mobile-header-center a {
-    pointer-events: auto; /* Re-enable clicks for the logo itself */
+    pointer-events: auto;
 }
 
 .mobile-header-left, .mobile-header-right {
-    z-index: 1; /* Ensure buttons are clickable and above the center container if needed */
+    z-index: 1;
 }
 
-/* Flexbox utilities for perfect centering */
+/* Flexbox utilities for perfect logo centering */
 .header-left {
     flex: 1;
     display: flex;
@@ -78,7 +79,7 @@
     text-decoration: underline;
 }
 
-/* Custom Button Styling */
+/* custom button styling */
 .btn-mercury {
     background-color: #006394;
     color: #ffffff;
@@ -103,7 +104,7 @@
     text-decoration: underline;
 }
 
-/* Navigation Links */
+/* --- TOP NAVIGATION LINKS --- */
 .top-nav a {
     color: #000;
     font-weight: 700;
@@ -117,17 +118,12 @@
     text-decoration: underline;
 }
 
-/* Header Container to prevent jump when sticky */
+/* header container to prevent jump when sticky */
 .header-desktop-container {
-    min-height: 180px; /* Approximately the height of the full desktop header */
-}
-
-.header-desktop-container.has-sticky {
-    /* Maintain the space even when header is fixed */
     min-height: 180px;
 }
 
-/* Sticky Header Animation and Styling */
+/* --- STICKY HEADER --- */
 .sticky-header {
     position: fixed;
     top: 0;
@@ -145,16 +141,6 @@
     }
 }
 
-.mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1060;
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
-}
-
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -164,7 +150,7 @@
     }
 }
 
-/* Icon Button Resets */
+/* --- ICON BUTTONS --- */
 .icon-btn {
     background: transparent;
     border: none;
@@ -179,10 +165,10 @@
     color: #006394;
 }
 
-/* Specific styling to align and color the desktop search icon */
+/* specific styling to align and color the desktop search icon */
 .search-icon-desktop {
     color: #000;
-    height: 38px; /* Matches the button height for perfect centering */
+    height: 38px;
     display: flex;
     align-items: center;
 }
@@ -192,7 +178,7 @@
     transition: background-color 0.2s ease;
 }
 
-/* Search Bar Dropdown Container */
+/* --- SEARCH BAR STYLING --- */
 .search-bar-container {
     background-color: #ffffff;
     border-top: 1px solid #ddd;
@@ -218,7 +204,7 @@
     z-index: 2;
 }
 
-/* Dark Overlay Backdrop - Updated z-index to sit perfectly between layers */
+/* --- SEARCH BACKDROP --- */
 .search-backdrop {
     position: fixed;
     top: 0;
@@ -226,11 +212,10 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.45);
-    z-index: 1; /* Updated from 1040 to neatly layer inside the header */
+    z-index: 1;
     cursor: pointer;
 }
 
-/* Seamless Input Styling */
 .search-input {
     flex-grow: 1;
     border: none;
@@ -241,34 +226,31 @@
     color: #000;
 }
 
-.search-input:focus {
-    outline: none;
-}
-
 .search-input::placeholder {
     color: #777;
 }
 
 /* --- SIDE MENU (ALL SECTIONS) STYLES --- */
 .side-menu {
+    /* scrollbar */
     scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* Internet Explorer / old Edge */
+    -ms-overflow-style: none;    /* Internet Explorer/old Edge */
+
     position: absolute;
     top: 100%;
     left: 0;
     width: 280px;
-    /* Calculates height to span the rest of the screen below the header */
     height: calc(100vh - 65px);
+
     background-color: #ffffff;
     box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
     border-right: 1px solid #ddd;
     z-index: 10;
 
-    /* Independent scrolling inside the menu */
+    /* independent scrolling inside the menu */
     overflow-y: auto;
     overscroll-behavior: contain;
 
-    /* Entrance Animation */
     animation: slideRight 0.2s ease-out forwards;
 }
 
@@ -277,13 +259,13 @@
     height: 0;
 }
 
-/* User Menu Entrance Animation */
+/* --- USER MENU ANIMATION --- */
 @keyframes slideLeft {
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* Mobile Sidebar width adjustment */
+/* --- MOBILE SIDEBAR WIDTH ADJUSTMENT --- */
 @media (max-width: 1199.98px) {
     .side-menu {
         position: absolute;
@@ -307,20 +289,17 @@
     transition: background-color 0.15s;
 }
 
-.side-menu-link:hover, .side-menu-link:focus {
-    background-color: #f4f4f4;
-    color: #006394 !important;
-}
-
-/* Full-width block button override for the sidebar */
+/* full-width block button override for the sidebar */
 .btn-mercury-block {
     width: 100% !important;
     height: 44px;
     font-size: 1rem;
+    font-weight: 700;
 }
 
-/* Sub-menu styling for accordion */
+/* sub-menu styling for accordion */
 .side-menu-sublink {
+    background-color: #ffffff;
     transition: background-color 0.15s, color 0.15s;
     animation: slideDown 0.2s ease-out forwards;
     cursor: pointer; /* Kept default since it acts as plain text */
@@ -349,13 +328,7 @@
     opacity: 1;
 }
 
-/* Optional hover interaction even for plain text sublinks to feel responsive */
-.side-menu-sublink:hover {
-    background-color: #ebebeb;
-    color: #006394 !important;
-}
-
-/* Reset buttons inside side menu to act strictly as structural layout */
+/* reset buttons inside side menu to act strictly as structural layout */
 .menu-accordion-btn {
     width: 100%;
     text-align: left;
@@ -370,26 +343,24 @@
     top: 100%;
     right: 0;
     width: 280px;
-    /* Calculates height to span the rest of the screen below the header */
     height: calc(100vh - 65px);
+
     background-color: #ffffff;
-    box-shadow: -4px 4px 15px rgba(0,0,0,0.1);
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #ffffff;
     z-index: 10;
     padding: 20px;
+
     display: flex;
     flex-direction: column;
     gap: 12px;
 
-    /* Independent scrolling inside the menu */
     overflow-y: auto;
     overscroll-behavior: contain;
 
-    /* Entrance Animation */
     animation: slideLeft 0.2s ease-out forwards;
 }
 
-/* Mobile User Menu Sidebar width adjustment */
+/* mobile user menu sidebar width adjustment */
 @media (max-width: 1199.98px) {
     .user-menu-dropdown {
         position: absolute;
@@ -402,12 +373,4 @@
         overflow-y: auto;
         overscroll-behavior: contain;
     }
-}
-
-/* Ensure the button matches the sidebar buttons */
-.btn-mercury-block {
-    width: 100%;
-    height: 44px;
-    font-size: 1rem;
-    font-weight: 700;
 }

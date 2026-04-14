@@ -2,7 +2,7 @@ import React from 'react';
 import './css/MostPopular.css';
 
 const MostPopular = () => {
-    // 10 Lipsum placeholder articles
+    //10 Lipsum placeholder articles
     const lipsumArticles =[
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod",
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
@@ -24,7 +24,7 @@ const MostPopular = () => {
 
             <div className="row">
                 {/* Left Column (Items 1-5) */}
-                {/* col-md-6 makes it 2 columns on tablet/desktop. col-12 makes it 1 column on mobile. */}
+                {/* col-md-6 makes it 2 columns on tablet/desktop, col-12 makes it 1 column on mobile */}
                 <div className="col-12 col-md-6">
                     <ul className="list-unstyled m-0">
                         {lipsumArticles.slice(0, 5).map((title, idx) => (

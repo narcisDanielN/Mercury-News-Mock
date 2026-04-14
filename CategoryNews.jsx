@@ -2,18 +2,18 @@ import React from 'react';
 import './css/CategoryNews.css';
 
 const CategoryNews = () => {
-    // Reusable custom arrow SVG
+    //custom arrow SVG
     const ChevronRight = () => (
         <svg className="category-arrow" aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
         </svg>
     );
 
-    // Data structure for the 3 categories
+    //data structure for the 3 categories
     const categoriesData =[
         {
             category: "CRIME AND PUBLIC SAFETY",
-            mainImg: "https://placehold.co/600x400/eeeeee/999999?text=Crime+And+Safety",
+            mainImg: "https://placehold.co/600x400/eeeeee/999999?text=Crime+and+Safety",
             mainTitle: "Lorem ipsum dolor sit amet consectetur adipiscing elit",
             mainDesc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             subArticles:[
@@ -35,7 +35,7 @@ const CategoryNews = () => {
         },
         {
             category: "REAL ESTATE",
-            mainImg: "https://placehold.co/600x400/eeeeee/999999?text=Real+Estate",
+            mainImg: "https://placehold.co/600x400/eeeeee/999999?text=Real+estate",
             mainTitle: "Et harum quidem rerum facilis est et expedita distinctio",
             mainDesc: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.",
             subArticles:[
@@ -56,7 +56,6 @@ const CategoryNews = () => {
                         col-xl-4: 3 columns per row on large desktop (All items in one row)
                     */
                     <div key={idx} className="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0 d-flex flex-column">
-
                         {/* Section Header */}
                         <div className="category-header-container">
                             <h2 className="category-title">{data.category}</h2>
@@ -77,7 +76,6 @@ const CategoryNews = () => {
                         </div>
 
                         {/* 3 Sub Articles */}
-                        {/* mt-auto pushes the list to the bottom so heights naturally balance */}
                         <ul className="list-unstyled m-0 mt-auto">
                             {data.subArticles.map((subTitle, subIdx) => (
                                 <li key={subIdx} className="category-sub-item">
@@ -87,7 +85,6 @@ const CategoryNews = () => {
                                 </li>
                             ))}
                         </ul>
-
                     </div>
                 ))}
             </div>

@@ -1,3 +1,4 @@
+/* importing font */
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
 /* --- FOOTER BASE --- */
@@ -32,12 +33,11 @@
     margin-bottom: 0;
 }
 
-/* Container just handles the black border now */
+/* container that handles the black border */
 .footer-heading-container {
     border-top: 2px solid #000;
 }
 
-/* Guarantees the top black line aligns with the logo mathematically */
 .footer-col > .footer-section-wrapper:first-of-type > .footer-heading-container {
     margin-top: 0;
 }
@@ -52,6 +52,11 @@
     padding-bottom: 0.75rem;
 }
 
+.footer-heading:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .footer-accordion-btn {
     background: transparent;
     border: none;
@@ -61,49 +66,44 @@
     color: #000;
 }
 
-.footer-heading:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 /* --- MOBILE ACCORDION STACKING FIX --- */
 @media (max-width: 767.98px) {
-    /* 1. Removes the spacing between sections */
+    /* removes the spacing between sections */
     .footer-section-wrapper {
         margin-bottom: 0 !important;
     }
 
-    /* 2. Overrides Bootstrap's mb-4 on the columns so they don't add gaps */
+    /* overrides Bootstrap's mb-4 on the columns so they don't add gaps */
     .footer-col {
         margin-bottom: 0 !important;
     }
 
     .footer-heading-container {
-        padding: 0.8rem 0; /* Tighter vertical spacing */
+        padding: 0.8rem 0;
     }
 
-    /* 3. Increases tap target size for mobile accessibility */
+    /* increases tap target size for mobile accessibility */
     .footer-accordion-btn {
         padding: 0;
     }
 
-    /* 4. Adds space inside the open list so it breathes before the next line */
+    /* adds space inside the open list so it breathes before the next line */
     .footer-accordion-panel.is-open ul {
         padding-bottom: 1.25rem;
     }
 
-    /* 5. Removes gap between last section and button */
+    /* removes gap between last section and button */
     .d-md-none > .footer-section-wrapper:last-of-type {
         margin-bottom: 0 !important;
     }
 
-    /* 6. Tightens button container spacing on mobile */
+    /* tightens button container spacing on mobile */
     .footer-button-container {
         margin-top: 0 !important;
         padding-top: 0.8rem;
     }
 
-    /* 7. Center logo only for 1-column mode */
+    /* centers logo only for 1-column mode */
     .footer-logo-wrapper {
         justify-content: center;
     }
@@ -118,7 +118,7 @@
 }
 
 .footer-accordion-panel.is-open {
-    max-height: 500px; /* Large enough for the content */
+    max-height: 500px;
     opacity: 1;
 }
 
@@ -141,7 +141,7 @@
     transition: color 0.15s;
 }
 
-/* The blue subscribe button */
+/* subscribe button */
 .footer-button-container {
     border-top: 2px solid #000;
     margin-top: 1.25rem;
@@ -167,7 +167,7 @@
     font-size: 0.95rem;
     padding: 10px 16px;
     width: 100%;
-    margin-top: 0; /* Margin handled by the container now */
+    margin-top: 0;
     transition: background-color 0.2s ease;
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import './css/TrendingSection.css';
 
 const TrendingSection = ({ isScrolled }) => {
-    // If scrolled, the section completely disappears
+    //if scrolled, the section completely disappears
     if (isScrolled) return null;
 
     const trendingItems = [

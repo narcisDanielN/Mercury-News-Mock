@@ -7,6 +7,7 @@
     align-items: center;
 }
 
+/* --- CATEGORY TITLE --- */
 .bottom-cat-title {
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -21,6 +22,7 @@
     cursor: pointer;
 }
 
+/* --- CATEGORY ARROW --- */
 .bottom-cat-arrow {
     color: #006da3;
     margin-left: 0.25rem;
@@ -43,6 +45,7 @@
     height: 100%;
 }
 
+/* --- MAIN TITLE --- */
 .bottom-cat-main-title {
     font-size: 2.2rem;
     font-weight: 800;
@@ -58,6 +61,7 @@
     color: #006da3;
 }
 
+/* --- MAIN TITLE DESCRIPTION --- */
 .bottom-cat-desc {
     font-size: 0.95rem;
     color: #444;
@@ -65,6 +69,7 @@
     margin-bottom: 0;
 }
 
+/* --- ARTICLES LIST --- */
 .bottom-cat-list-item {
     border-bottom: 1px solid #d7d6d2;
     padding-bottom: 0.85rem;
@@ -90,18 +95,17 @@
     color: #006da3;
 }
 
-/* --- RESPONSIVE CSS GRID MAGIC --- */
 .bottom-cat-grid {
     display: grid;
     gap: 1.5rem;
 }
 
-/* Map the HTML elements to Grid Areas */
+/* map the HTML elements to Grid Areas */
 .cat-img { grid-area: img; }
 .cat-text { grid-area: text; }
 .cat-list { grid-area: list; }
 
-/* 1. Mobile & Tablet (1-col & 2-col views): Stack everything completely */
+/* Mobile & Tablet (1-col & 2-col views): Stack everything completely */
 @media (max-width: 991.98px) {
     .bottom-cat-grid {
         grid-template-columns: 1fr;
@@ -111,37 +115,37 @@
             "list";
     }
     .cat-list {
-        border-top: 1px solid #d7d6d2; /* Line separating text and list */
+        border-top: 1px solid #d7d6d2;
         padding-top: 0.5rem;
     }
 }
 
-/* 2. Small Desktop (3-col view): Image Left, Text+List Stacked on the Right */
+/* Small Desktop (3-col view): Image Left, Text+List Stacked on the Right */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .bottom-cat-grid {
         grid-template-columns: 40% 1fr;
         grid-template-areas:
             "img text"
-            ". list"; /* . is an empty cell under the image */
+            ". list";
         gap: 0 1.5rem;
     }
     .cat-text {
         margin-bottom: 1.25rem;
     }
     .cat-list {
-        border-top: 1px solid #d7d6d2; /* Line separating text and list */
+        border-top: 1px solid #d7d6d2;
         padding-top: 1rem;
     }
 }
 
-/* 3. Large Desktop (4-col view): Image Left, Text Right, List far Right */
+/* Large Desktop (4-col view): Image Left, Text Right, List far Right */
 @media (min-width: 1200px) {
     .bottom-cat-grid {
-        /* Left Column (Image & Text) gets 65%, Right Column (List) gets 35% */
+        /* left column (Image & Text) gets 65%, right column (List) gets 35% */
         grid-template-columns: 30% 35% 1fr;
         grid-template-areas:
             "img text list"
-            ". . list"; /* Empty cells under img and text to keep list separate if it's longer */
+            ". . list";
         gap: 0 2rem;
     }
     .cat-list {
