@@ -295,7 +295,7 @@ const Header = ({isScrolled}) => {
 
                                 {/* The Mercury News logo */}
                                 <div className="header-center d-flex justify-content-center align-items-start">
-                                    <a href="/" className="text-decoration-none" aria-label="The Mercury News Homepage">
+                                    <a href="./" className="text-decoration-none" aria-label="The Mercury News Homepage">
                                         <h1 className="site-logo text-nowrap">The Mercury News</h1>
                                     </a>
                                 </div>
@@ -358,7 +358,7 @@ const Header = ({isScrolled}) => {
 
                         {/* The Mercury News logo */}
                         <div className="mobile-header-center">
-                            <a href="/" className="text-decoration-none">
+                            <a href="./" className="text-decoration-none">
                                 <h1 className="site-logo site-logo-mobile text-nowrap">The Mercury News</h1>
                             </a>
                         </div>

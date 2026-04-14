@@ -117,7 +117,7 @@ const Footer = () => {
                 {/* Top Logo Row "The Mercury News" */}
                 <div className="row mb-2">
                     <div className="col-12 col-md-6 col-lg-5 col-xl-3">
-                        <a href="/" className="text-decoration-none d-block w-100" aria-label="The Mercury News Homepage">
+                        <a href="./" className="text-decoration-none d-block w-100" aria-label="The Mercury News Homepage">
                             <div className="footer-logo-wrapper">
                                 <svg viewBox="0 0 240 42" className="footer-site-logo-svg" aria-hidden="true">
                                     <text
