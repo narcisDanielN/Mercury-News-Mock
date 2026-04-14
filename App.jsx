@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import TrendingSection from './TrendingSection';
 import MainNews from './MainNews';
 import CategoryNews from "./CategoryNews";
+import PhotosSection from "./PhotosSection";
 
 function App() {
     const [isScrolled,setIsScrolled] = useState(false);
@@ -32,6 +33,13 @@ function App() {
 
                 {/* CRIME AND PUBLIC SAFETY, SPORTS and REAL ESTATE Section */}
                 <CategoryNews />
+
+                {/* Photos Section */}
+                <div className="row">
+                    <div className="col-12 col-lg-8 col-xl-12 pe-lg-4 pe-xl-0">
+                        <PhotosSection />
+                    </div>
+                </div>
             </main>
 
             {/* Implementing the new Footer component */}
