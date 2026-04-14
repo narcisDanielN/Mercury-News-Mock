@@ -5,6 +5,7 @@ import TrendingSection from './TrendingSection';
 import MainNews from './MainNews';
 import CategoryNews from "./CategoryNews";
 import PhotosSection from "./PhotosSection";
+import BottomCategories from "./BottomCategories";
 
 function App() {
     const [isScrolled,setIsScrolled] = useState(false);
@@ -38,6 +39,13 @@ function App() {
                 <div className="row">
                     <div className="col-12 col-lg-8 col-xl-12 pe-lg-4 pe-xl-0">
                         <PhotosSection />
+                    </div>
+                </div>
+
+                {/* Bottom Categories Section */}
+                <div className="row">
+                    <div className="col-12 col-lg-8 col-xl-12 pe-lg-4 pe-xl-0">
+                        <BottomCategories />
                     </div>
                 </div>
             </main>

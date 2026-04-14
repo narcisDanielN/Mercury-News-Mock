@@ -1,0 +1,152 @@
+/* --- CATEGORY HEADER --- */
+.bottom-cat-header {
+    border-bottom: 2px solid #006da3;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-cat-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #333;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.bottom-cat-title:hover {
+    color: #006da3;
+    cursor: pointer;
+}
+
+.bottom-cat-arrow {
+    color: #006da3;
+    margin-left: 0.25rem;
+    margin-top: -2px;
+}
+
+/* --- TYPOGRAPHY --- */
+.bottom-cat-img-link {
+    display: block;
+    height: 100%;
+}
+
+.bottom-cat-img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cat-img {
+    height: 100%;
+}
+
+.bottom-cat-main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #000;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    display: block;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.bottom-cat-main-title:hover {
+    color: #006da3;
+}
+
+.bottom-cat-desc {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.bottom-cat-list-item {
+    border-bottom: 1px solid #d7d6d2;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.bottom-cat-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.bottom-cat-sub-link {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.3;
+    display: block;
+}
+
+.bottom-cat-sub-link:hover {
+    color: #006da3;
+}
+
+/* --- RESPONSIVE CSS GRID MAGIC --- */
+.bottom-cat-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Map the HTML elements to Grid Areas */
+.cat-img { grid-area: img; }
+.cat-text { grid-area: text; }
+.cat-list { grid-area: list; }
+
+/* 1. Mobile & Tablet (1-col & 2-col views): Stack everything completely */
+@media (max-width: 991.98px) {
+    .bottom-cat-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "img"
+            "text"
+            "list";
+    }
+    .cat-list {
+        border-top: 1px solid #d7d6d2; /* Line separating text and list */
+        padding-top: 0.5rem;
+    }
+}
+
+/* 2. Small Desktop (3-col view): Image Left, Text+List Stacked on the Right */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .bottom-cat-grid {
+        grid-template-columns: 40% 1fr;
+        grid-template-areas:
+            "img text"
+            ". list"; /* . is an empty cell under the image */
+        gap: 0 1.5rem;
+    }
+    .cat-text {
+        margin-bottom: 1.25rem;
+    }
+    .cat-list {
+        border-top: 1px solid #d7d6d2; /* Line separating text and list */
+        padding-top: 1rem;
+    }
+}
+
+/* 3. Large Desktop (4-col view): Image Left, Text Right, List far Right */
+@media (min-width: 1200px) {
+    .bottom-cat-grid {
+        /* Left Column (Image & Text) gets 65%, Right Column (List) gets 35% */
+        grid-template-columns: 30% 35% 1fr;
+        grid-template-areas:
+            "img text list"
+            ". . list"; /* Empty cells under img and text to keep list separate if it's longer */
+        gap: 0 2rem;
+    }
+    .cat-list {
+        grid-row: span 2;
+        border-top: none;
+        padding-top: 0;
+    }
+}

@@ -133,14 +133,14 @@
 }
 
 .decorative-diamond {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     background-color: #fbfbfb; /* The exact fill color you requested */
     border-bottom: 1px solid #d7d6d2;
     border-right: 1px solid #d7d6d2;
     transform: rotate(45deg); /* Tilts the square into a diamond */
     position: absolute;
-    top: -15px; /* Pulls it up by exactly half its height to perfectly center it on the line */
+    top: -17px; /* Pulls it up by exactly half its height to perfectly center it on the line */
 }
 
 /* --- SHOW MORE PHOTOS --- */
@@ -158,10 +158,8 @@
     background: transparent;
     border: none;
     padding: 0;
-    transition: color 0.2s;
 }
 
 .btn-show-more:hover {
-    text-decoration: underline;
-    color: #004d73;
+    color: #0a0908;
 }
