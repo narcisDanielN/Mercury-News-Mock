@@ -87,13 +87,13 @@ const sidebarLinksData =[
 ];
 
 //search bar
-const SearchBarDropdown = () => (
-    <div className="search-bar-container px-4 py-2 d-flex align-items-center">
+const SearchBarDropdown = ({ id }) => (
+    <form className="search-bar-container px-4 py-2 d-flex align-items-center" role="search">
         <SearchIcon />
-        <label htmlFor="site-search-input" className="visually-hidden">Type your search</label>
-        <input id="site-search-input" type="text" className="search-input mx-3" placeholder="Type your search" autoFocus />
-        <button className="btn-mercury" style={{ width: '90px' }}>Search</button>
-    </div>
+        <label htmlFor={id} className="visually-hidden">Type your search</label>
+        <input id={id} type="text" className="search-input mx-3" placeholder="Type your search" autoFocus />
+        <button type="submit" className="btn-mercury" style={{ width: '90px' }}>Search</button>
+    </form>
 );
 
 //side menu
@@ -317,7 +317,7 @@ const Header = ({isScrolled}) => {
                                 </div>
                             </div>
                         </div>
-                        {isSearchOpen && <SearchBarDropdown />}
+                        {isSearchOpen && <SearchBarDropdown id="site-search-input-desktop" />}
                         {isMenuOpen && <SideMenu expandedSections={expandedSections} toggleAccordion={toggleAccordion} />}
                     </div>
 
@@ -374,7 +374,7 @@ const Header = ({isScrolled}) => {
                         </div>
                     </div>
 
-                    {isSearchOpen && <SearchBarDropdown />}
+                    {isSearchOpen && <SearchBarDropdown id="site-search-input-mobile" />}
                     {isMenuOpen && <SideMenu expandedSections={expandedSections} toggleAccordion={toggleAccordion} />}
                     {isUserMenuOpen && <UserMenuDropdown />}
                 </div>
